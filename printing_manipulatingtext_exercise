@@ -1,0 +1,83 @@
+# Finding AT percentage content
+#dna_sequence='ACTGATCGATTACGTATAGTATTTGCTATCATACATATATATCGATGCGTTCAT'
+
+A_content = dna_sequence.count('A')
+T_content = dna_sequence.count('T')
+dna_sequence_count = len(dna_sequence)
+AT_content_percent = ((A_content+T_content)/dna_sequence_count)*100
+
+print(A_content)
+print(T_content)
+print(dna_sequence_count)
+print(AT_content_percent)
+
+#Find reverse complement
+dna_sequence = 'ACTGATCGATTACGTATAGTATTTGCTATCATACATATATATCGATGCGTTCAT'
+
+def reverse_complement(sequence):
+    reverse_comp = []
+    for i in sequence:
+        if i == "A":
+            reverse_comp  += "T"
+        if i == "T":
+            reverse_comp += "A"
+        if i == "G":
+            reverse_comp += "C"
+        if i == "C":
+            reverse_comp += "G"
+
+    return reverse_comp
+
+Reverse_Complement = reverse_complement(dna_sequence)
+print(*Reverse_Complement)
+print(*Reverse_Complement[::-1])#[::-1] reverse the sequence
+
+my_dna = "ACTGATCGATTACGTATAGTATTTGCTATCATACATATATATCGATGCGTTCAT"
+replacement1 = my_dna.replace('A', 't')
+print(replacement1)
+replacement2 = replacement1.replace('T', 'a')
+print(replacement2)
+replacement3 = replacement2.replace('C', 'g')
+print(replacement3)
+replacement4 = replacement3.replace('G', 'c')
+print(replacement4)
+print(replacement4.upper())
+
+#Restriction fragment lengths
+
+#The sequence contains a recognition site for the EcoRI restriction enzyme, which
+#cuts at the motif G*AATTC (the position of the cut is indicated by an asterisk).
+#Write a program which will calculate the size of the two fragments that will be
+#produced when the DNA sequence is digested with EcoRI.
+
+dna_sequence = 'ACTGATCGATTACGTATAGTAGAATTCTATCATACATATATATCGATGCGTTCAT'
+
+def restrictionfraglength (sequence,motif,cut):
+    cut_position = (sequence.find(motif))+ cut
+    first_length = len(sequence[0:cut_position])
+    second_length = len(sequence[cut_position:])
+    return print(first_length, second_length)
+
+fragment_lengths =restrictionfraglength(dna_sequence,'GAATTC',1)
+
+print(fragment_lengths)
+
+dna_sequence = 'ATCGATCGATCGATCGACTGACTAGTCATAGCTATGCATGTAGCTACTCGATCGATCGATCGATCGATCGATCGATCGATCGATCATGCTATCATCGATCGATATCGATGCATCGACTACTAT'
+
+exon_1 = dna_sequence[0:63]
+exon_2 = dna_sequence[91:]
+print(exon_1)
+print(exon_2)
+
+length_of_seq = len(dna_sequence)
+length_of_exon_1 = len(exon_1)
+length_of_exon_2 = len(exon_2)
+
+percentage_coding = ((length_of_exon_1+length_of_exon_2)/length_of_seq)*100
+
+print(percentage_coding, '%')
+
+intron = dna_sequence[63:91]
+
+print(exon_1 + intron.lower() + exon_2)
+
