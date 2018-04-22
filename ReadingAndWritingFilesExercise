@@ -1,0 +1,49 @@
+#opening files in specific folder, remember to input 'r' in front
+
+fhandle = open(r"C:\Users\kianmun80\PycharmProjects\pythonforbiologist_1\exercises and examples\reading_files\exercises\genomic_dna.txt")
+dna_sequence = fhandle.read()
+
+
+#opening files in specific folder, remember to input 'r' in front and editing them
+
+exon_1 = dna_sequence[0:63]
+exon_2 = dna_sequence[91:]
+intron = dna_sequence[63:91]
+
+coding_handle = open(r"C:\Users\kianmun80\PycharmProjects\pythonforbiologist_1\exercises and examples\reading_files\exercises\coding_dna.txt","a")
+coding_handle.write("\n" + exon_1 +"\n" + exon_2)
+
+non_coding_handle = open(r"C:\Users\kianmun80\PycharmProjects\pythonforbiologist_1\exercises and examples\reading_files\exercises\noncoding_dna.txt","a")
+non_coding_handle.write("\n" + intron)
+
+
+#opening files in specific folder, remember to input 'r' in front and editing them
+
+fhandle = open(r"C:\Users\kianmun80\PycharmProjects\pythonforbiologist_1\exercises and examples\reading_files\exercises\genomic_sequences.fasta","w")
+
+fhandle.write('>ABC123\n' + 'ATCGTACGATCGATCGATCGCTAGACGTATCG\n')
+fhandle.write('\n>DEF456\n' + 'actgatcgacgatcgatcgatcacgact\n'.upper())
+fhandle.write('\n>HIJ789\n' + 'ACTGAC-ACTGT--ACTGTA----CATGTG\n')
+
+fhandle.close()
+
+
+#making 3 files and writing onto those 3 files
+
+header_1 = "ABC123"
+header_2 = "DEF456"
+header_3 = "HIJ789"
+
+seq_1 = "ATCGTACGATCGATCGATCGCTAGACGTATCG"
+seq_2 = "actgatcgacgatcgatcgatcacgact"
+seq_3 = "ACTGAC-ACTGT—ACTGTA----CATGTG"
+
+#make 3 files to hold output
+output1 = open(header_1+'.fasta','w')
+output2 = open(header_2+'.fasta','w')
+output3 = open(header_3+'.fasta','w')
+
+output1.write('>'+header_1+'\n'+seq_1)
+output2.write('>'+header_2+'\n'+seq_2)
+output3.write('>'+header_3+'\n'+seq_3)
+
