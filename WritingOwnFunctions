@@ -2,7 +2,13 @@
 def get_AT_content (dna, sig_fig):
 #or 'def get_AT_content (dna, sig_fig=2):', where sig_fig is default 2
 #when user only input 'dna' without sig_fig
-    A_count = dna.upper().count('A')
-    T_count = dna.upper().count('T')
+    dna = dna.upper().replace('N','')
+#Removes unknown sequence'N'
+    A_count = dna.count('A')
+    T_count = dna.count('T')
     AT_content = (A_count + T_count)/ len(dna)
     return round(AT_content, sig_fig)
+
+
+#assert is to test functions, if incorrect will throw Traceback  Assertion error
+assert get_AT_content('atgcnnnnNNnn',1) ==0.9
