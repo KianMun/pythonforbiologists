@@ -1,5 +1,7 @@
 #Calculate AT content and rounding them off to x significant figures
 def get_AT_content (dna, sig_fig):
+#or 'def get_AT_content (dna, sig_fig=2):', where sig_fig is default 2
+#when user only input 'dna' without sig_fig
     A_count = dna.upper().count('A')
     T_count = dna.upper().count('T')
     AT_content = (A_count + T_count)/ len(dna)
