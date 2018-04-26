@@ -1,5 +1,5 @@
 #Calculate AT content and rounding them off to x significant figures
-def get_AT_content (dna, sig_fig):
+def get_AT_content (dna, sig_fig =2):
 #or 'def get_AT_content (dna, sig_fig=2):', where sig_fig is default 2
 #when user only input 'dna' without sig_fig
     dna = dna.upper().replace('N','')
@@ -9,6 +9,43 @@ def get_AT_content (dna, sig_fig):
     AT_content = (A_count + T_count)/ len(dna)
     return round(AT_content, sig_fig)
 
+dna = 'atgcnnnnNNnn'
+AT_content = get_AT_content(dna)
+print(AT_content)
 
 #assert is to test functions, if incorrect will throw Traceback  Assertion error
-assert get_AT_content('atgcnnnnNNnn',1) ==0.9
+assert get_AT_content('atgcnnnnNNnn',1) ==0.5
+assert get_AT_content("A")== 1
+assert get_AT_content("G")== 0
+assert get_AT_content("ATGC") == 0.5
+assert get_AT_content("AGG") == 0.33
+assert get_AT_content("AGG", 1) == 0.3
+assert get_AT_content("AGG", 5) == 0.33333
+
+#Counting Amino Acid residue content from a protein seq in percentage(*100)
+def get_aminoacid_content(protein_seq, amino_acid_residue):
+    protein_seq = protein_seq.upper()
+    amino_acid_count = protein_seq.count(amino_acid_residue.upper())
+    amino_acid_content = ((int(amino_acid_count) / len(protein_seq)) * 100)
+    return amino_acid_content
+
+#'Asserting', i.e. testing the function
+assert get_aminoacid_content("MSRSLLLRFLLFLLLLPPLP", "M") == 5
+assert get_aminoacid_content("MSRSLLLRFLLFLLLLPPLP", "r") == 10
+assert get_aminoacid_content("MSRSLLLRFLLFLLLLPPLP", "L") == 50
+assert get_aminoacid_content("MSRSLLLRFLLFLLLLPPLP", "Y") == 0
+
+def get_aminoacid_content_list(proteinseq, aa_list=['A', 'I', 'L', 'M', 'F', 'W', 'Y', 'L'], sig_fig = 2):
+    proteinseq = proteinseq.upper()
+    total = 0
+    for aa in aa_list:
+        aa = aa.upper()
+        aa_count = proteinseq.count(aa)
+        total += aa_count
+    percentage = (int(total)/len(proteinseq)) * 100
+    return round(percentage, sig_fig)
+
+M_L_aa_content = get_aminoacid_content_list('MSRSLLLRFLLFLLLLPPLP', ['M', 'L'])
+ml_content = print(M_L_aa_content)
+
+
