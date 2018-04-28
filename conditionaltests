@@ -41,4 +41,18 @@ for accession in accs:
 accs = ['ab56', 'bh84', 'hv76', 'ay93', 'ap97', 'bd72']
 for acc in accs:
     if acc.startswith('a') and not acc.startswith('ay'):
-        print(acc)        
+        print(acc)   
+
+#true/false function if DNA is AT rich, where AT > 0.65
+def is_at_rich(dna):
+    length = len(dna)
+    A_count = dna.upper().count('A')
+    T_count = dna.upper().count('T')
+    AT_count = A_count + T_count
+    AT_content = AT_count/length
+    if AT_content > 0.65:
+        return True
+    else:
+        return False and AT_content
+print(is_at_rich('ATATATATATTTTAT'))
+print(is_at_rich('GCATCGGCCATGCAT'))
