@@ -12,3 +12,8 @@ for accession in accs:
     else:
         file3.write(accession + '\n')
 
+#while loops
+count = 0
+while count<10:
+    print(count)
+    count +=1
