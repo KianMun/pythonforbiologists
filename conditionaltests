@@ -107,3 +107,14 @@ for line in data:
     AT_content = AT_count/length
     if AT_content < 0.5 and int(expression) > 200:
         print (gene_name)
+
+#Print out the gene names for all genes whose name begins with "k" or "h" except
+#those belonging to Drosophila melanogaster.
+for line in data:
+    columns = line.rstrip('\n').split(',')
+    species = columns[0]
+    sequence = columns[1]
+    gene_name = columns[2]
+    expression = columns[3]
+    if (gene_name.startswith('k') or gene_name.startswith('h')) and species != 'Drosophilla melanogaster':
+        print(gene_name)
