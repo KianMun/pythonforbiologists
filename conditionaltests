@@ -56,3 +56,16 @@ def is_at_rich(dna):
         return False and AT_content
 print(is_at_rich('ATATATATATTTTAT'))
 print(is_at_rich('GCATCGGCCATGCAT'))
+
+#true/false function if DNA is AT rich, where AT > 0.65
+#A more concise and easier to read version of the above function
+def is_AT_rich(dna):
+    length = len(dna)
+    A_count = dna.upper().count('A')
+    T_coubt = dna.upper().count('T')
+    AT_count = A_count + T_coubt
+    AT_content = AT_count/length
+    return AT_content > 0.65
+print(is_AT_rich('ATATATATATTTTAT'))
+print(is_AT_rich('GCATCGGCCATGCAT'))
+
