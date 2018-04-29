@@ -4,3 +4,8 @@ import re
 dna = "ATCGCAAAAAAATTTTTTGGGGGGAATTCAC"
 if re.search(r'GAATTC', dna):
     print(dna.find('GAATTC'))
+
+#'|' to find either or character
+dna = "ATCGCGAGGACCATTCAC"
+if re.search(r"GG(A|T)CC", dna):
+    print('found!')
