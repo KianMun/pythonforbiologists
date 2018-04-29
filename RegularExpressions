@@ -22,3 +22,9 @@ if re.search(r"GC[^AT]GC",dna):
     print('restriction site found')
 else:
     print('Not found')
+
+dna = 'ATGACGTACGTACGACTG'
+
+#store the match object in the variable m
+m = re.search(r"GA[ATGC]{3}AC",dna)
+print(m.group(), 'Position in string: ', dna.find(m.group()))
