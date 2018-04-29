@@ -1,0 +1,6 @@
+import re
+
+#finding position of motif in a dna sequence
+dna = "ATCGCAAAAAAATTTTTTGGGGGGAATTCAC"
+if re.search(r'GAATTC', dna):
+    print(dna.find('GAATTC'))
