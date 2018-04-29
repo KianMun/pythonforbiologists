@@ -9,3 +9,16 @@ if re.search(r'GAATTC', dna):
 dna = "ATCGCGAGGACCATTCAC"
 if re.search(r"GG(A|T)CC", dna):
     print('found!')
+
+dna = "ATCGCGAATTCAC"
+if re.search(r"GC(A|T|G|C)GC", dna):
+    print("restriction site found!")
+#or as below:
+if re.search(r'GC[ATGC]GC', dna):
+    print('restriction site found')
+
+#specifying characters that I don't want to match with "^"
+if re.search(r"GC[^AT]GC",dna):
+    print('restriction site found')
+else:
+    print('Not found')
