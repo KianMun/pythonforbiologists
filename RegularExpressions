@@ -57,6 +57,7 @@ print('group two start: ', str(m.start(2)))
 print('group two end: ', str(m.end(2)))
 
 #Spliting string using regular expression
+#Splitting the DNA string whenever a base isn't A, T, G or C
 dna_split = "ACTNGCATRGCTACGTYACGATSCGAWTCG"
 runs = re.split(r"[^ATGC]", dna_split)
 print(runs)
