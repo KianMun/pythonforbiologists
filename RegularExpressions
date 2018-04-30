@@ -28,3 +28,16 @@ dna = 'ATGACGTACGTACGACTG'
 #store the match object in the variable m
 m = re.search(r"GA[ATGC]{3}AC",dna)
 print(m.group(), 'Position in string: ', dna.find(m.group()))
+
+
+#Capture bits of the pattern by supplying an argument to
+# the group method. group(1) will return the bit of the string matched by the
+# section of the pattern in the first set of parentheses, group(2) will return the bit
+# matched by the second
+
+dna = "ATGACGTACGTACGACTG"
+
+m = re.search(r"GA([ATGC]{3})AC([ATGC]{2})AC", dna)
+print('entire match: ', m.group())
+print('first bit: ', m.group(1))
+print('second bit: ', m.group(2))
