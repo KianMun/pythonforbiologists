@@ -41,3 +41,9 @@ m = re.search(r"GA([ATGC]{3})AC([ATGC]{2})AC", dna)
 print('entire match: ', m.group())
 print('first bit: ', m.group(1))
 print('second bit: ', m.group(2))
+
+#Getting position of a match using 'start' and 'end' methods
+
+#python counts from 0 zero
+print('start: ', str(m.start()))
+print('end: ', str(m.end()))
