@@ -55,3 +55,8 @@ print('group one start: ', str(m.start(1)))
 print('group one end: ', str(m.end(1)))
 print('group two start: ', str(m.start(2)))
 print('group two end: ', str(m.end(2)))
+
+#Spliting string using regular expression
+dna_split = "ACTNGCATRGCTACGTYACGATSCGAWTCG"
+runs = re.split(r"[^ATGC]", dna_split)
+print(runs)
