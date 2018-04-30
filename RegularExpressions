@@ -61,3 +61,21 @@ print('group two end: ', str(m.end(2)))
 dna_split = "ACTNGCATRGCTACGTYACGATSCGAWTCG"
 runs = re.split(r"[^ATGC]", dna_split)
 print(runs)
+
+#finding multiple matches - re.findall, re.findall only returns a list of strings, it has no attribute 'start', so it
+#won't return a position and will throw an error
+dna_findall = "ACTGCATTATATCGTACGAAATTATACGCGCG"
+runs_findall = re.findall(r'[AT]{4,100}', dna_findall)
+print(runs_findall)
+
+#finding multiple matches with positions using - re.finditer
+#re.finditer returns a sequence of match objects
+#re.finditer gives more flexibility than findall
+dna_finditer = "ACTGCATTATATCGTACGAAATTATACGCGCG"
+runs_finditer = re.finditer(r'[AT]{3,100}', dna_finditer)
+for match in runs_finditer:
+    runs_finditer_start = match.start()
+    runs_finditer_end = match.end()
+    print("AT rich region from " + str(runs_finditer_start) + " to " + str(runs_finditer_end))
+ 
+ 
