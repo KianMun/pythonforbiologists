@@ -47,3 +47,11 @@ print('second bit: ', m.group(2))
 #python counts from 0 zero
 print('start: ', str(m.start()))
 print('end: ', str(m.end()))
+
+#We can get the start and end positions of individual groups by supplying a number
+#as the argument to start and end
+
+print('group one start: ', str(m.start(1)))
+print('group one end: ', str(m.end(1)))
+print('group two start: ', str(m.start(2)))
+print('group two end: ', str(m.end(2)))
