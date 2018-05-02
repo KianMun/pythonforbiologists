@@ -113,3 +113,7 @@ for acc in gene_acc_names:
     if re.search(r"d.*e", acc) or re.search(r"e.*d", acc):
         print('Accesion with d and e in any order: ', acc)
     
+#start with x or y
+for acc in gene_acc_names:
+    if re.search(r"^(x|y)", acc):
+        print('Accession with x or y: ', acc)
