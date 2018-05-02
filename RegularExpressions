@@ -78,4 +78,26 @@ for match in runs_finditer:
     runs_finditer_end = match.end()
     print("AT rich region from " + str(runs_finditer_start) + " to " + str(runs_finditer_end))
  
- 
+#Regular Expressions Exercises
+
+import re
+gene_acc_names = ['xkn59438', 'yhdck2', 'eihd39d9', 'chdsye847', 'hedle3455', 'xjhd53e', '45da', 'de37dp']
+
+#acc contains '5'
+for acc in gene_acc_names:
+    if re.search(r"5",acc):
+        print('Accession with the number 5: ', acc)
+
+#acc contains 'd or e'
+for acc in gene_acc_names:
+    if re.search(r"(d|e)",acc):
+        print('Accesion with d or e: ', acc)
+
+#acc contains 'd AND e'
+for acc in gene_acc_names:
+    if re.search(r"d.*e", acc):
+#We have to be careful with our quantifiers, however – at first glance the pattern
+#d.+e looks good, but it will fail to match the accession where e follows d directly.
+#To allow for the fact that d might be immediately followed by e, we need to use the
+#asterisk
+        print('Accesion with d AND e: ', acc) 
