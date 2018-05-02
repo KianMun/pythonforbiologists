@@ -117,3 +117,38 @@ for acc in gene_acc_names:
 for acc in gene_acc_names:
     if re.search(r"^(x|y)", acc):
         print('Accession with x or y: ', acc)
+
+#start with x or y and end with e
+#".*" to match any number of any character
+for acc in gene_acc_names:
+    if re.search(r"^(x|y).*e$", acc):
+        print('Acc start with x or y and end with e: ', acc)
+
+#contain 3 or more numbers in a row
+#"\d" is the character group for digits.
+#{3,}, upper bound left empty to match it with no upper limit
+for acc in gene_acc_names:
+    if re.search(r"\d{3,}", acc):
+        print('Acc that contain 3 or more numbers in a row: ', acc)
+
+#end with d followed by either a, r or p
+for acc in gene_acc_names:
+    if re.search(r"d[arp]$", acc):
+        print('Acc end with d followed a, r or p: ', acc)
+
+#######################################################################################################################################
+import re
+
+#In the chapter_7 file inside the exercises download, there's a file called dna.txt
+#which contains a made-up DNA sequence. Predict the fragment lengths that we will
+#get if we digest the sequence with two made-up restriction enzymes – AbcI, whose
+#recognition site is ANT*AAT, and AbcII, whose recognition site is GCRW*TG
+#(asterisks indicate the position of the cut site).
+
+fhandle = open(r"C:\Users\kianmun80\PycharmProjects\pythonforbiologist_1\exercises and examples\regular_expressions\exercises\dna.txt")
+dna = fhandle.read().rstrip("\n")
+#recognition site is ANT*AAT for AbcI
+for match in re.finditer(r"A[ATGC]TAAT", dna):
+    #as the cut is 3 bases upstream to the start, hence +3
+    cut_site = (match.start()+3)
+    print('Fragment cut site are: ',cut_site)
