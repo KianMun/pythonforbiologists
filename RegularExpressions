@@ -78,6 +78,7 @@ for match in runs_finditer:
     runs_finditer_end = match.end()
     print("AT rich region from " + str(runs_finditer_start) + " to " + str(runs_finditer_end))
  
+#######################################################################################################################################
 #Regular Expressions Exercises
 
 import re
@@ -106,3 +107,9 @@ for acc in gene_acc_names:
 for acc in gene_acc_names:
     if re.search(r"(d.e)", acc):
         print('Accesion with d and letter in between follow by e: ', acc)
+    
+#contain both the letters d and e in any order
+for acc in gene_acc_names:
+    if re.search(r"d.*e", acc) or re.search(r"e.*d", acc):
+        print('Accesion with d and e in any order: ', acc)
+    
