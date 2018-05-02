@@ -93,11 +93,11 @@ for acc in gene_acc_names:
     if re.search(r"(d|e)",acc):
         print('Accesion with d or e: ', acc)
 
-#acc contains 'd AND e'
+#acc contains 'd follow by e'
 for acc in gene_acc_names:
     if re.search(r"d.*e", acc):
 #We have to be careful with our quantifiers, however – at first glance the pattern
 #d.+e looks good, but it will fail to match the accession where e follows d directly.
 #To allow for the fact that d might be immediately followed by e, we need to use the
 #asterisk
-        print('Accesion with d AND e: ', acc) 
+        print('Accesion with d follow by e: ', acc) 
