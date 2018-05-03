@@ -145,6 +145,8 @@ import re
 #recognition site is ANT*AAT, and AbcII, whose recognition site is GCRW*TG
 #(asterisks indicate the position of the cut site).
 
+##AbcI##
+
 fhandle = open(r"C:\Users\kianmun80\PycharmProjects\pythonforbiologist_1\exercises and examples\regular_expressions\exercises\dna.txt")
 dna = fhandle.read().rstrip("\n")
 #recognition site is ANT*AAT for AbcI
@@ -171,3 +173,5 @@ for i in range (1,len(all_cuts)):
     previous_cut_position = all_cuts[i-1]
     fragment_size = this_cut_position - previous_cut_position
     print('Fragment size is: ', fragment_size)
+
+##AbcII##
