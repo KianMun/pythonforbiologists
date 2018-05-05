@@ -1,0 +1,32 @@
+======================================================Practice 1========================================================================
+enzymes = {}
+enzymes['EcoRI'] = r'GAATTC'
+enzymes['AvaII'] = r'GG(A|T)CC'
+enzymes['BisI'] = r'GC[ATGC]GC'
+print(enzymes)
+print('BisI DNA seq: ' + enzymes['BisI'])
+enzymes.pop('EcoRI')
+print(enzymes)
+
+dna = "AATGATCGATCGTACGCTGA"
+counts = {}
+for base1 in ['A', 'T', 'G', 'C']:
+    for base2 in ['A', 'T', 'G', 'C']:
+        for base3 in ['A', 'T', 'G', 'C']:
+            trinucleotide = base1 + base2 + base3
+            count = dna.count(trinucleotide)
+            if count > 0:
+                counts[trinucleotide] = count
+print(counts)
+if 'AAA' in counts:
+    print(counts['AAA'])
+else:
+    print('Not Available')
+#counts.get('TGA', 0))), 'get' method to get the value of the key[]
+#('TGA', 0), '0' is the default return value if key doesn't exist
+print('Count for TGA is: ' + str(counts.get('TGA', 0)))
+print('Count for AAA is: ' + str(counts.get('AAA', 0)))
+print('Count for GTA is: ' + str(counts.get('GTA', 0)))
+print('Count for TTT is: ' + str(counts.get('TTT', 0)))
+
+
