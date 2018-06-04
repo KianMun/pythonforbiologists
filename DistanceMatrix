@@ -1,0 +1,36 @@
+# Distance matrix
+# One of the questions we might want to ask of our heavy metal gene
+# response data from earlier in the chapter is: which types of
+# contamination provoke similar responses in expression levels? To answer
+# it, we need to come up with a way of measuring how similar the sets of
+# over-expressed genes are for any two give conditions. A straightforward
+# metric is to divide the number of genes shared between the two lists (the
+# intersection) by the total number of genes in both lists (the union). Write a
+# program that will start with a list of sets (use the heavy metal data as an
+# example) and produce a pairwise similarity matrix stored in a dict of dicts
+
+gene_sets = {
+'arsenic' : {1,2,3,4,5,6,8,12},
+'cadmium' : {2,12,6,4},
+'copper' : {7,6,10,4,8},
+'mercury' : {3,2,4,5,1}
+}
+
+similarity_matrix ={}
+
+#pairwise comparison
+for condition1, set1 in gene_sets.items():
+    similarity_matrix[condition1] = {}
+    for condition2, set2 in gene_sets.items():
+        if condition1 != condition2:
+            similarity = len((set1.intersection(set2)))/len(set1.union(set2))
+            similarity_matrix[condition1][condition2] = similarity
+            #making a dict of dict matrix
+print(similarity_matrix)
+#{'arsenic': {'cadmium': 0.5, 'copper': 0.3, 'mercury': 0.625},
+# 'cadmium': {'arsenic': 0.5, 'copper': 0.2857142857142857, 'mercury': 0.2857142857142857},
+# 'copper': {'arsenic': 0.3, 'cadmium': 0.2857142857142857, 'mercury': 0.1111111111111111},
+# 'mercury': {'arsenic': 0.625, 'cadmium': 0.2857142857142857, 'copper': 0.1111111111111111}}
+
+print(similarity_matrix['arsenic']['copper'])
+#0.3
