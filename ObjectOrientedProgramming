@@ -1,0 +1,26 @@
+class DNARecord:
+
+    def __init__(self, sequence, gene_name, species_name):
+        self.sequence = sequence
+        self.gene_name = gene_name
+        self.species_name = species_name
+
+    def complement(self):
+        replacement1 = self.sequence.replace('A', 't')
+        replacement2 = replacement1.replace('T', 'a')
+        replacement3 = replacement2.replace('C', 'g')
+        replacement4 = replacement3.replace('G', 'c')
+        return replacement4
+
+    def get_AT(self):
+        length = len(self.sequence)
+        a_cout = self.sequence.count('A')
+        t_count = self.sequence.count('T')
+        at_content = (a_cout + t_count)/length
+        return str(at_content)
+
+d = DNARecord('ACGTAGCTGACGATCATATATATAGCGCGCGCGCATATATAGCGCGCGCATATATA', 'ABC1', 'Drosophila melanogaster')
+
+print('Complement: ', d.complement().upper())
+print('AT content: ', d.get_AT())
+print('Species name: ', d.species_name)
